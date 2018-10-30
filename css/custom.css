@@ -64,6 +64,10 @@ li a {
     color: rgb(200,100,15);
 }
 
+.project_description a:hover {
+    color: rgb(255, 255, 255);
+}
+
 
 
 /*.myname a:hover, .myname a:link, .myname a:visited, .myname a:active, .myname a{*/
