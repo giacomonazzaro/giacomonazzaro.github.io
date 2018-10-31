@@ -16,9 +16,11 @@ nav {
     margin: 0px 0 0 0;
     padding: 0px;
     justify-content: space-around;
+    text-align: center;
 }
 
 nav ul li {
+    /*display: flex;*/
     display: inline;
     margin: 0 30px; /* 20 is the space between */
     font-size: 2.7rem;
@@ -34,22 +36,32 @@ li a {
     font-weight: 500;
     /*font-size: 3.2rem;*/
     font-size: 50px;
-    color: rgb(200, 200, 200);
+    margin-bottom: 0px;
 }
 
-.myname a {
-    color: rgb(200, 200, 200);
+.myname, .myname a, .myname a:hover {
+    color: rgb(100, 100, 100);
 }
+
+/*.myname a:hover, .myname a:link, .myname a:visited, .myname a:active, .myname a{
+.myname a:hover {
+    color: rgb(200,200,200);
+}
+*/
 
 .selected {
     /*color: rgb(150, 150, 150)*/
+    color: rgb(255, 255, 255);
+    /*font-weight: 500;*/
+    /*color: rgba(200, 200, 200, 0.2);*/
 }
 
 .title {
     font-size: 300%;
-    font-weight: bold;
-    color: rgba(200, 200, 200, 0.2);
-    margin-left: 3%;
+    font-weight: 500;
+    color: rgba(200, 200, 200, 1);
+    margin-left: 0;
+    margin-bottom: 0;
 }
 
 .project_title {
@@ -63,19 +75,14 @@ li a {
 }
 
 .project_description a {
-    color: rgb(200,100,15);
+    /*color: rgb(200,100,15);*/
+    color: rgb(150,150,150);
 }
 
 .project_description a:hover {
     color: rgb(255, 255, 255);
 }
 
-
-
-/*.myname a:hover, .myname a:link, .myname a:visited, .myname a:active, .myname a{*/
-.myname a:hover {
-    color: rgb(200,200,200);
-}
 
 a {
     text-decoration: none;
