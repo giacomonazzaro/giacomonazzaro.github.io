@@ -1,2 +1,2 @@
-# Personal website 
-https://giacomonazzaro.github.io/index.html
+# Personal website
+https://giacomonazzaro.github.io
