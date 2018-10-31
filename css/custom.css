@@ -4,8 +4,26 @@
     max-width: 800px;
 }
 
-a {
-    color: rgb(200,200,200);
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+:root {
+    --dark: #6e6464;
+    --light: #c8c8c8;
+}
+
+pre, .md code, .md pre.tilde {
+    background-color: rgb(10,10,10);
+    padding: 0px;
+    border: : 0px;
+}
+
+a, .md a {
+    color: var(--light);
 }
 
 a:hover {
@@ -30,7 +48,7 @@ nav ul li {
 }
 
 li a {
-    color: rgb(200, 200, 200);
+    color: var(--light);
 }
 
 .myname {
@@ -42,13 +60,13 @@ li a {
 
 .myname, .myname a, .myname a:hover {
     /*color: rgb(100, 100, 100);*/
-    color: rgb(200, 200, 200);
+    color: var(--light);
     text-align: center;
 }
 
 /*.myname a:hover, .myname a:link, .myname a:visited, .myname a:active, .myname a{
 .myname a:hover {
-    color: rgb(200,200,200);
+    color: var(--light);
 }
 */
 
@@ -62,7 +80,7 @@ li a {
 .title {
     font-size: 300%;
     font-weight: 500;
-    color: rgb(110, 110, 110);
+    color: var(--dark);
     /*color: rgba(200, 200, 200, 1);*/
     margin-top: 0;
     margin-left: 0;
@@ -72,20 +90,20 @@ li a {
 .project_title {
     font-size: 30px;
     font-weight: normal;
-    color: rgb(200, 200, 200);
+    color: var(--light);
 }
 
-.project_description {
+.project_description, .md {
     font-size: 20px;
 }
 
-.project_description a {
+.project_description a, .md a {
     /*color: rgb(200,100,15);*/
     /*color: rgb(150,150,150);*/
     font-weight: 500;
 }
 
-.project_description a:hover {
+.project_description a:hover, .md a:hover {
     color: rgb(255, 255, 255);
 }
 
@@ -103,27 +121,36 @@ nav a {
     color: rgb(255,255,255);
 }*/
 
-body {
+body, .md {
     font-weight: 300;
     font-family: "SF Text", "Roboto", "Helvetica";
-    color: rgb(200, 200, 200);
+    color: var(--light);
+    padding: 0px;
+}
+
+.markdeep {
+    font-weight: 300;
+    font-size: 50px;
 }
 
 hr {
     margin-top: 0rem;
     margin-bottom: 0rem;
+    /*border-top: 1px solid #c8c8c8;*/
+    border-top: 1px solid var(--dark);
 }
 
 .header hr {
     margin-top: 1.0rem;
     margin-bottom: 0.0rem;
-    color: rgba(200,200,200,0);
+    color: rgba(200,200,200,1);
 }
 
 .footer hr {
     margin-top: 1.9rem;
     margin-bottom: 0.6rem;
-    color: rgba(200,200,200,0);
+    /*color: rgba(200,200,200,1);*/
+
 }
 .footer {
     opacity: 0.74;
@@ -176,10 +203,10 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }*/
     display: inline-block;
 }
 
-pre > code {
+/*pre > code {
     background: transparent;
     border: 1px solid #E1E1E1;
-}
+}*/
 
 th, td {
     text-align: left;
