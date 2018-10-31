@@ -22,8 +22,9 @@ nav {
 nav ul li {
     /*display: flex;*/
     display: inline;
-    margin: 0 30px; /* 20 is the space between */
-    font-size: 2.7rem;
+    margin: 0 5%; /* 20 is the space between */
+    font-size: 175%;
+    /*font-size: 2.7rem;*/
     margin-top: 0px;
     /*padding: 0px;*/
 }
@@ -106,19 +107,22 @@ body {
 hr {
     margin-top: 0rem;
     margin-bottom: 0rem;
-    color: yellow;
 }
 
 .header hr {
     margin-top: 1.0rem;
     margin-bottom: 0.0rem;
+    color: rgba(200,200,200,0);
 }
 
 .footer hr {
     margin-top: 1.9rem;
     margin-bottom: 0.6rem;
+    color: rgba(200,200,200,0);
 }
-
+.footer {
+    opacity: 0.74;
+}
 
 /*h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
