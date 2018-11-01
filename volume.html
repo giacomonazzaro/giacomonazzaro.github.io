@@ -43,6 +43,7 @@
 </div>
 
 <div class="container">
+    <p class="project_description"> Code at <a href="https://github.com/xelatihy/yocto-gl/"> https://github.com/xelatihy/yocto-gl</a>
     <div class="row project-row">
         <img src="images/volume.png" class="project_image">
         <markdeep>
@@ -50,7 +51,7 @@
 
                 Thanks to significant advances in techniques, along with increasing computational power, path tracing has now become the predominant rendering method used in production, therefore it is convenient to implement a volumetric renderer as an extension of a path tracer.
 
-                <!-- ##{Volume rendering equation} -->
+                **Volumes**<br>
                 Volumes, in the sense we are describing them for our purposes, are collections of very small particles. The average density of the particles needs to be relatively low so that their size is negligible compared to the average distance between them. This is a prerequisite for statistically independent collisions and is usually the case in any gaseous or translucent media [#fong2017production].<br>
                 As a radiance beam travels through a volume, it may collide with the particles making up the medium, defining the radiance distribution throughout a volume. Because it is not feasible to model each and every particle in a volume, they are treated as collision probability fields.<br>
                 The properties of volumes are defined by the volumetric density, albedo and emission together with the phase function.<br>
@@ -71,7 +72,8 @@
 
                 _Emission_. The volumetric emission $L_e(\mathbf x, \vec\omega)$ is the radiance emitted from the point $\mathbf{x}$ along the direction $\vec\omega$. In any practical scenario, volumes do not emit light directionally, hence the emission is isotropic: $L_e(\mathbf x, \vec\omega) = L_e(\mathbf x)$. For non emissive volumes, this term is simply zero.<br>
 
-                **Light propagation in volumes**<br>
+
+                **The volume rendering equation**<br>
                 Let us now see what physical phenomena affect the propagation of light in volumes and how they are modeled.<br>
                 Light can undergo four different kind of interaction with the medium: absorption,  out-scattering, emission and in-scattering.<br>
 
@@ -270,6 +272,7 @@
                         x += t * direction
                         trasmittance *= 1 - volume_density(x) / volume_density_majorant
                     }
+                }
                 ~~~~~
 
 
