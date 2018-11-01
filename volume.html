@@ -258,7 +258,7 @@
                 In a volumetric path tracer, in order to compute the contribution of direct lighting, it is also needed to estimate the transmittance of a portion of volume such that is possible to obtain the radiance that from the light source reaches a certain point. This can be done by integrating the term $T(t) = \exp\left( - \int_{0}^{t}{v_d(\mathbf x_s)\ ds}\right)$.<br>
                 To obtain an estimate of $T(t)$ some approaches employ quadrature (using ray marching) or Russian roulette (hence estimated transmittance is either 0 or 1 in each sample).<br>
                 The method that is proven to produce the least variance is ratio tracking, where the transmittance is estimated following the approach of delta tracking and joint probability of consecutive null collision events from the origin point to the destination.
-                $$T(b) = \prod_{i=1}^K n(\mathbf x)$$
+                $$T(b) = \prod_{i=1}^K n(\mathbf x_i)$$
 
                 ~~~~~
                 ratio_tracking: (vec3f positon, vec3f direction, float distance) -> Trasmittance {
