@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128512104-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-128512104-2');
+    </script>
 
     <meta charset="utf-8">
     <title>Giacomo Nazzaro</title>
@@ -56,7 +65,7 @@
                 As a radiance beam travels through a volume, it may collide with the particles making up the medium, defining the radiance distribution throughout a volume. Because it is not feasible to model each and every particle in a volume, they are treated as collision probability fields.<br>
                 The properties of volumes are defined by the volumetric density, albedo and emission together with the phase function.<br>
 
-                _Density_. The chance of a photon collision at the point $\mathbf x$ inside the volume is defined by the volumetric density coefficient $v_d(\mathbf x)$, which is the probability density of collision per unit distance traveled inside the volume. The physical unit of the density coefficient is the inverse length and $\frac{1}{v_d(\mathbf{x})}$ is in fact the mean free path in the medium. In general, we consider only the case where the coefficients are a function of position and make them spectrally varying where appropriate.<br>
+                <i>Density</i>. The chance of a photon collision at the point $\mathbf x$ inside the volume is defined by the volumetric density coefficient $v_d(\mathbf x)$, which is the probability density of collision per unit distance traveled inside the volume. The physical unit of the density coefficient is the inverse length and $\frac{1}{v_d(\mathbf{x})}$ is in fact the mean free path in the medium. In general, we consider only the case where the coefficients are a function of position and make them spectrally varying where appropriate.<br>
 
                 _Albedo_. The volumetric albedo coefficient $v_a \in [0,1]$ is the fraction of energy that, after a collision, is scattered into different directions, defined by the phase function. It is called _albedo_ because it is a measure of how much radiance is reflected, hence it defines brightness and color of a volume.<br>
                 The remaining part of the energy is absorbed by the volume. We call this fraction absorption, defined as $\bar v_a = 1-v_a$.<br>

@@ -55,6 +55,7 @@ li a {
     font-weight: 500;
     /*font-size: 3.2rem;*/
     font-size: 50px;
+    /*font-size: 400%;*/
     margin-bottom: 0px;
 }
 
@@ -121,8 +122,14 @@ nav a {
     color: rgb(255,255,255);
 }*/
 
-body, .md {
+body {
     font-weight: 300;
+    font-family: "SF Text", "Roboto", "Helvetica";
+    color: var(--light);
+    padding: 0px;
+}
+
+.md {
     font-family: "SF Text", "Roboto", "Helvetica";
     color: var(--light);
     padding: 0px;
