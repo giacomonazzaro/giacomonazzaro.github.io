@@ -41,7 +41,9 @@ nav ul li {
     /*display: flex;*/
     display: inline;
     margin: 0 5%; /* 20 is the space between */
-    font-size: 175%;
+    /*font-size: 175%;*/
+    /*font-size: 26px;*/
+    font-size: calc(0.7vw + 17px);
     /*font-size: 2.7rem;*/
     margin-top: 0px;
     /*padding: 0px;*/
@@ -55,15 +57,15 @@ li a {
     font-weight: 500;
     /*font-size: 3.2rem;*/
     /*max-width: 100%;*/
-    /*font-size: 50px;*/
     /*font-size: 4vw;*/
+    /*font-size: 50px;*/
 
-    font-size: calc(0.5vw + 30px);
+    font-size: calc(1.6vw + 30px);
     margin-bottom: 0px;
 }
 
 .myname, .myname a, .myname a:hover {
-    color: rgb(100, 0, 0);
+    color: rgb(100, 0, 100);
     /*color: var(--light);*/
     text-align: center;
 }
