@@ -54,8 +54,11 @@ li a {
 .myname {
     font-weight: 500;
     /*font-size: 3.2rem;*/
-    font-size: 50px;
-    /*font-size: 400%;*/
+    /*max-width: 100%;*/
+    /*font-size: 50px;*/
+    /*font-size: 4vw;*/
+
+    font-size: calc(1.5vw + 30px);
     margin-bottom: 0px;
 }
 
