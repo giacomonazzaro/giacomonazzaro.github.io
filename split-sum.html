@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128512104-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-128512104-2');
+    </script>
+
+    <meta charset="utf-8">
+    <title>Giacomo Nazzaro</title>
+    <meta name="description" content="Giacomo Nazzaro">
+    <meta name="author" content="Giacomo Nazzaro">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="Giacomo Nazzaro"/>
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+  </head>
+
+<body bgcolor="#323232">
+
+<!-- <div class="header container"> -->
+<!-- </div> -->
+
+<div class="header container">
+    <p class="myname"><a href="index.html">Giacomo Nazzaro</a></p>
+      <nav>
+        <ul>
+          <!-- <li class="myname"><a href="index.html">Giacomo Nazzaro</a></li><br> -->
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <!-- <li><a href="contacts.html">Contacts</a></li> -->
+            <hr>
+        </ul>
+      </nav>
+</div>
+
+<div class="container">
+      <p class="title">Split sum IBL</p>
+</div>
+
+<div class="container">
+    <!-- <p class="project_description"> Code at <a href="https://github.com/xelatihy/yocto-gl/"> https://github.com/xelatihy/yocto-gl</a> -->
+    <div class="row project-row">
+        <!-- <img src="images/volume.png" class="project_image"> -->
+        <markdeep>
+            <p class="project_description">
+                Computing the exact illumination ... rendering equation...
+                $$ L(\mathbf{x}, \vec{\omega}_o) = L_{\textrm{e}}(\mathbf{x}, \vec{\omega}_o) + {\int_{\Omega}{ L(\mathbf{x}, \vec{\omega}_i) f(\mathbf{x},\vec{\omega}_i, \vec{\omega}_o) | \vec{\mathbf{n}}_{\mathbf x}\cdot\vec{\omega}_i| d\vec{\omega}_i}} $$
+                It must be computed for each pixel of the image, every frame, hence in a time budget smaller than 15 milliseconds. This is infeasable with current hardware, real time applications, such as videgames, employ various techninques to approximate the value of the rendering equation in order to produce still good results but in ....
+
+                **Physically based brdf**<br>
+                The first ingredient to achieve photorealistic rendering is using physically based brdfs. The most common one is the Cook-Torrance microfacet model
+                $$ f_{k_s, \alpha} \left(\mathbf l, \mathbf v \right) = \frac{F_{k_s}(\mathbf v, \mathbf h)\ D_{\alpha}(\mathbf h)\ G_{\alpha}(\mathbf l, \mathbf v)}{4 (\mathbf n, \mathbf l)(\mathbf n, \mathbf v)} $$
+                Where...
+
+                <!-- $$ {\int_{\Omega}{ L(\mathbf{x}, \vec{\omega}_i) \frac{F_{k_s}(\mathbf v, \mathbf h)\ D_{\alpha}(\mathbf h)\ G_{\alpha}(\mathbf l, \mathbf v)}{4 (\mathbf n, \mathbf v)}  d\vec{\omega}_i}} \simeq  \int_{\Omega}{ L(\mathbf l) d \mathbf l} \int_{\Omega} {\frac{F_{k_s}(\mathbf v, \mathbf h)\ D_{\alpha}(\mathbf h)\ G_{\alpha}(\mathbf l, \mathbf v)}{4 (\mathbf n, \mathbf v)}  d\mathbf{l}} $$ -->
+
+                $$ \sum_{n=0}^N { L_i F_{k_s}\ G_{\alpha} } \simeq \left( \sum_{n=0}^M { L_i(\mathbf l)} \right) \left( \sum_{i=0}^N { F_{k_s}(\mathbf v, \mathbf h)\ G_{\alpha}(\mathbf l, \mathbf v) } \right) $$
+
+                $$ F_{k_s}(\mathbf v, \mathbf h) = k_s + (1 - k_s)(1 - \mathbf v \cdot \mathbf h)^5 $$
+                $$ F_{k_s}(\mathbf v, \mathbf h) = k_s \left(1  - (1 - \mathbf v \cdot \mathbf h)^5 \right) + (1 - \mathbf v \cdot \mathbf h)^5 $$
+            </p>
+        </markdeep>
+    </div>
+</div>
+
+
+<div class="container">
+    <hr>
+    <div class="footer">
+        <br>
+        <ul>
+            <li><a href="mailto:nazzarogiacomo@gmail.com" title="">  <img src="images/email.png" alt="email"> </a></li>
+            <li><a href="https://github.com/giacomonazzaro">  <img src="images/github.png" alt="github"> </a></li>
+            <li><a href="https://www.linkedin.com/in/giacomo-nazzaro-879728b2/">  <img src="images/linked-in.png" alt="linked-in"> </a></li>
+        </ul>
+    </div>
+</div>
+
+<script>window.markdeepOptions = {mode: 'html'};</script> 
+<script src="https://casual-effects.com/markdeep/latest/markdeep.min.js"></script>
+</body>
+
+
