@@ -28,7 +28,8 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
 
   </head>
-  <body bgcolor="#323232">
+  <!-- <body bgcolor="#323232"> -->
+  <body bgcolor="#0A0D16">
 
     <!-- <div class="header container"> -->
     <!-- </div> -->
@@ -38,24 +39,100 @@
           <nav>
             <ul>
               <!-- <li class="myname"><a href="index.html">Giacomo Nazzaro</a></li><br> -->
-              <li    class="selected">Home</li>
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="resume.html">Resume</a></li>
-              <!-- <li><a href="contacts.html">Contacts</a></li> -->
-                <hr>
+
+            
             </ul>
           </nav>
 
     </div>
   
-  <div class="container">
-        <p class="title">Home</p>
+<div class="container">
+  <p class="title">About</p>
+  <p class="project_description">
+        Hello there, I am Giacomo Nazzaro, a phd student in computer graphics at Sapienza, University of Rome. Here you can explore my projects or download my <a href="resume.pdf">resume</a>.
+  </p>
+    <div>
+
+  <p class="title">Projects</p>
+        <div>
+            <div class="row project-row">
+                <div class="one-third column">
+                    <a href="volume.html"><img class="project_image" src="images/volume.jpg" alt="img"></a>
+                </div>
+            <div class="two-thirds column">
+                <h2 class="project_title"><a href="volume.html">Volume path tracing</a></h2>
+                <p class="project_description">
+                    Implementation of a volume path tracer inside Yocto-gl, a C++ library for Computer Graphics research, created by Fabio Pellacini. <br>
+                    Read the <a href="volume.html">article</a> or jump to the <a href="https://github.com/xelatihy/yocto-gl">code</a>.
+                </p>
+    <!--             <p class="project_description">
+                    <a href="volume.html">article</a>
+                    <a href="https://github.com/xelatihy/yocto-gl">code</a>
+                </p> -->
+            </div>
+        </div>
+        <br>
+
+        <div>
+            <div class="row project-row">
+                <div class="one-third column">
+                    <a href="split-sum.html"><img class="project_image" src="images/carpaint.jpg" alt="img"></a>
+                </div>
+            <div class="two-thirds column">
+                <h2 class="project_title"><a href="split-sum.html">Split sum IBL</a></h2>
+                <p class="project_description">
+                    Open-GL implementation of the image based lighting techniques used in Unreal Engine 4, presented in this <a href="http://blog.selfshadow.com/publications/s2013-shading-course/karis/s2013_pbs_epic_notes_v2.pdf">paper</a> by Brian Karis.  <br>
+                    Read the <a href="split-sum.html">article</a>.
+                </p>
+    <!--             <p class="project_description">
+                    <a href="volume.html">article</a>
+                    <a href="https://github.com/xelatihy/yocto-gl">code</a>
+                </p> -->
+            </div>
+        </div>
+        <br>
+
+        <div class="row project-row">
+            <div class="one-third column">
+                <a href="https://github.com/giacomonazzaro/path_tracing_project"><img class="project_image" src="images/rendering.jpg" alt="img"></a>
+            </div>
+        <div class="two-thirds column">
+            <h2 class="project_title"><a href="https://github.com/giacomonazzaro/path_tracing_project">Renderer</a></h2>
+            <p class="project_description">
+                Old project of a path tracer, created for college and improved for fun. Code not mantained anymore since I moved my efforts to <a href="https://github.com/xelatihy/yocto-gl">yocto-gl</a>.
+            </p>
+        </div>
+    </div>
+    <br>
+    <div>
+        <div class="row project-row">
+            <div class="one-third column">
+                <a href="https://github.com/giacomonazzaro/serialize"><img class="project_image" src="images/binary.jpg" alt="img"></a>
+            </div>
+        <div class="two-thirds column">
+            <h2 class="project_title"><a href="https://github.com/giacomonazzaro/serialize">Serialize</a></h2>
+            <p class="project_description">
+                Simple header-only C++ library for serialization. Useful for dumping memory to disk and save/load the state of a program.
+            </p>
+        </div>
+    </div>
+    <br>
+
+    <div class="row project-row">
+        <div class="one-third column">
+            <a href="https://github.com/giacomonazzaro/csp_solver"><img class="project_image" src="images/nqueens.png" alt="8-queens image"></a>
+        </div>
+    <div class="two-thirds column">
+        <h2 class="project_title"><a href="https://github.com/giacomonazzaro/csp_solver">CSP solver</a></h2>
         <p class="project_description">
-        Hello there, I am Giacomo Nazzaro.<br>
-        This is my website, where you can explore my <a href="projects.html">projects</a> (code + article).<br>
-        Everything here is still work in progress, more contents and beauty are coming soon.
+            A <a href = "https://en.wikipedia.org/wiki/Constraint_satisfaction_problem">constraint satisfaction problem</a> is defined as a set of variables, each with an associated domain, and a set of contstraints. The goal is to find an assignment for each variable, such that every constraint is satisfied. The problem is solved as a search in the vast space of possible assignments. My solver features forward propagation, GAC3, MRV and max degree.
         </p>
-  </div>
+    </div>
+
+</div>
+
+</body>
+</html>
 
 
 
