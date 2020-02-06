@@ -1,5 +1,11 @@
 @import url("fonts.css");
 
+@font-face {
+  font-family: "SF Display";
+  font-weight: 600;
+  src: url("https://sf.abarba.me/SF-UI-Display-Semibold.otf");
+}
+
 .container {
     max-width: 800px;
 }
@@ -13,8 +19,10 @@
 
 :root {
     --dark: #6e6464;
-    --light: #c8c8c8;
+    /*--light: #c8c8c8;*/
+    --light: rgb(200, 200, 200);
     --highlight: #FF9300;
+    --orange: #F06543;
 }
 
 pre, .md code, .md pre.tilde {
@@ -24,7 +32,7 @@ pre, .md code, .md pre.tilde {
 }
 
 a, .md a {
-    color: var(--light);
+    color: var(--orange);
 }
 
 a:hover {
@@ -51,7 +59,7 @@ nav ul li {
 }
 
 li a {
-    color: var(--light);
+    color: var(--orange);
 }
 
 .myname {
@@ -65,9 +73,24 @@ li a {
     margin-bottom: 0px;
 }
 
+.giacomo {
+  text-align: center !important;
+  /*color: #FF6B6B !important;*/
+  color: #F06543 !important; 
+  font-family: SF Display !important;
+  font-size: 60px !important;  
+  font-weight: bold;
+  text-decoration: none !important;
+}
+
+
 .myname, .myname a, .myname a:hover {
     /*color: rgb(100, 0, 100);*/
-    color: var(--highlight);
+    /*color: var(--highlight);*/
+  /*color: #FF6B6B !important;*/
+    color: #F06543;
+    /*font-family: 'Source Sans Pro', sans-serif;*/
+
     text-align: center;
 }
 
@@ -87,8 +110,8 @@ li a {
 .title {
     font-size: 300%;
     font-weight: 500;
-    color: var(--dark);
-    /*color: rgba(200, 200, 200, 1);*/
+    /*color: var(--dark);*/
+    color: rgba(255, 255, 255, 0.1);
     margin-top: 0;
     margin-left: 0;
     margin-bottom: 0;
@@ -97,10 +120,11 @@ li a {
 .project_title {
     font-size: 30px;
     font-weight: normal;
-    color: var(--light);
+    font-family: "SF Text", "Roboto", "Helvetica";
 }
 
 .project_description, .md {
+    /*font-family: "Palatino";*/
     font-size: 20px;
 }
 
@@ -131,7 +155,9 @@ nav a {
 body {
     font-weight: 300;
     font-family: "SF Text", "Roboto", "Helvetica";
+    /*font-family: "Palatino";*/
     color: var(--light);
+    background: rgb(30, 30, 40);
     padding: 0px;
 }
 
@@ -146,18 +172,25 @@ body {
     font-size: 50px;
 }
 
-hr {
+/*hr {
     margin-top: 0rem;
     margin-bottom: 0rem;
-    /*border-top: 1px solid #c8c8c8;*/
+    border-top: 1px solid #c8c8c8;
     border-top: 1px solid var(--dark);
+}*/
+
+hr {
+  background: rgb(200,200,200);
+  margin-top: 3%;
+  /*height: 10px;*/
 }
 
-.header hr {
+
+/*.header hr {
     margin-top: 1.0rem;
     margin-bottom: 0.0rem;
     color: rgba(200,200,200,1);
-}
+}*/
 
 .footer hr {
     margin-top: 1.9rem;
@@ -180,12 +213,17 @@ h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.08rem; }
 h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
 h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }*/
 
+.prova {
+    margin-top: 15px;
+}
+
 .project_image {
     /*border: 1px solid #ccc;*/
-    border-color: rgb(5,5,5);
+    border: 2px solid rgba(0,0,0,0.5);
+    /*border-color: rgb(5,5,5);*/
     /*padding: 2px;*/
     /*margin: 7px 0;*/
-    border-radius: 15px;
+    border-radius: 10px;
     width: 100%;
     height: auto;
 }
