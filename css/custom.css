@@ -181,8 +181,9 @@ body {
 
 hr {
   background: rgb(200,200,200);
-  margin-top: 3%;
-  /*height: 10px;*/
+  margin-top: 1%;
+  width: 800px;
+  height: 1px;
 }
 
 
