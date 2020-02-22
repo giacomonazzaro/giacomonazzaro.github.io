@@ -104,7 +104,7 @@ $$\mathbb{E}[\langle L(\mathbf{x}, \vec\omega \rangle] =
  \bar v_a L_e(\textbf{x}_{\tau}, \vec{\omega}) + v_a L_s(\textbf{x}_{\tau}, \vec\omega)$$
 Therefore, this new estimator is as unbiased as the previous one.<br>
 This estimator cannot be practically used yet because unlike $L_e(\textbf{x}_t, \vec{\omega})$, which can be directly evaluated, $L_s(\textbf{x}_t, \vec{\omega})$ is given by an integral expression which value is unknown.<br>
-The value of $L_s(\mathbf{x}, \vec\omega) = \int_{S^2} f(\textbf{x},\vec\omega, \vec\omega_i) L(\textbf{x}, \vec{\omega}) d\vec{\omega_i}$ must be estimated via Monte Carlo, using $f$ as sampling strategy, since it can be perfectly importance sampled.<br>
+The value of $L_s(\mathbf{x}, \vec\omega)$ must be estimated via Monte Carlo, using $f$ as sampling strategy, since it can be perfectly importance sampled.<br>
 Given two uniform random variables $\xi_1$ and $\xi_2$ in $[0,1]$, the two Euler angles of the sampled direction can be computed in the following way
 $$\cos\theta = \frac{1}{2g} \left( 1 + g^2 - \left( \frac{1-g^2}{1-g+2g\xi_1} \right)^2 \right)$$
 $$\phi = 2\pi \xi_2$$
