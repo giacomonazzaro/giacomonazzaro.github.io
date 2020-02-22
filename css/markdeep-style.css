@@ -54,6 +54,7 @@ body {
 .MathJax_Display {
   /*width: 10px !important;*/
   overflow-x: auto;
+  overflow-y: hidden;
   /*max-width: 50%;*/
 }
 
