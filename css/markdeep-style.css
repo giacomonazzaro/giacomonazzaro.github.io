@@ -27,7 +27,8 @@ body {
   background: rgb(30, 30, 40);
   /*background: rgb(0,0,0);*/
   /*background: #393e46;*/
-  max-width: 80%;
+  /*max-width: 100%;*/
+  max-width: 800px;
   /*color: #e8eef2;*/
   /*font-family: Arial, Helvetica, "sans serif";*/
   /*font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;*/
@@ -37,6 +38,17 @@ body {
   font-size: 22px;  
   text-align: justify;
 }
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  body {
+    width: 95%;
+  }
+}
+
+.MathJax span {
+  /*width: 10px !important;*/
 }
 
 hr {
