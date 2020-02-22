@@ -125,14 +125,14 @@ This approach is called regular tracking and is summarized in the pseudocode.
 
 ```
 regular_tracking: (vec3f positon, vec3f direction) -> radiance {
-    while (true) {
-        t := -log(random()) / volume_density
-        x += t * direction
-        if (random() < volume_albedo)
-            direction = sample_phase_function(direction)
-        else
-            return volume_emission
-    }
+  while (true) {
+    t := -log(random()) / volume_density
+    x += t * direction
+    if (random() < volume_albedo)
+      direction = sample_phase_function(direction)
+    else
+      return volume_emission
+  }
 }
 ```
 
@@ -157,17 +157,17 @@ $$
 
 ```
 delta_tracking: (vec3f positon, vec3f direction) -> radiance {
-    while (true) {
-        float t = -log(random()) / volume_density_majorant
-        x += t * direction
-        float null_prob = 1 - volume_density(x) / volume_density_majorant 
-        if (random() < null_prob)
-            continue
-        if (random() < volume_albedo)
-            direction = sample_phase_function(direction)
-        else
-            return volume_emission
-    }
+  while (true) {
+    float t = -log(random()) / volume_density_majorant
+      x += t * direction
+      float null_prob = 1 - volume_density(x) / volume_density_majorant 
+      if (random() < null_prob)
+        continue
+      if (random() < volume_albedo)
+        direction = sample_phase_function(direction)
+      else
+        return volume_emission
+  }
 }
 ```
 
@@ -193,24 +193,24 @@ If the point $\mathbf x_b$ is inside another volume that is containing the previ
 
 ```
 delta_tracking: (vec3f positon, vec3f direction, float bondary) -> radiance {
-    while (true) {
-        float t = -log(random()) / volume_density_majorant
-        if (t > boundary)
-            return path_trace(x + boundary * direction, direction)
-
-        x += t * direction
-        float null_prob = 1 - volume_density(x) / volume_density_majorant 
-        if (random() < null_prob) {
-            boundary -= t
-            continue
-        }
-        if (random() < volume_albedo) {
-            direction = sample_phase_function(direction)
-            boundary = ray_trace(positon, direction)
-        }
-        else
-            return volume_emission
+  while (true) {
+    float t = -log(random()) / volume_density_majorant
+    if (t > boundary)
+      return path_trace(x + boundary * direction, direction)
+    
+    x += t * direction
+    float null_prob = 1 - volume_density(x) / volume_density_majorant 
+    if (random() < null_prob) {
+      boundary -= t
+      continue
     }
+    if (random() < volume_albedo) {
+      direction = sample_phase_function(direction)
+      boundary = ray_trace(positon, direction)
+    }
+    else
+      return volume_emission
+  }
 }
 ```
 
@@ -222,16 +222,16 @@ $$T(b) = \prod_{i=1}^K n(\mathbf x_i)$$
 
 ```
 ratio_tracking: (vec3f positon, vec3f direction, float distance) -> Trasmittance {
-    float trasmittance = 1
-    float t = 0
-    while (true) {
-        t -= log(random()) / volume_density_majorant
-        if (t > distance)
-            return trasmittance
+  float trasmittance = 1
+  float t = 0
+  while (true) {
+    t -= log(random()) / volume_density_majorant
+    if (t > distance)
+      return trasmittance
 
-        x += t * direction
-        trasmittance *= 1 - volume_density(x) / volume_density_majorant
-    }
+      x += t * direction
+      trasmittance *= 1 - volume_density(x) / volume_density_majorant
+  }
 }
 ```
 
