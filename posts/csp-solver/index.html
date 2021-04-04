@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<title>CSP Solver | Giacomo Nazzaro</title>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.80.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="http://localhost:1313css/index.css">
+<link rel="canonical" href="http://localhost:1313/posts/csp-solver/">
+<link rel="alternate" type="application/rss+xml" href="" title="Giacomo Nazzaro">
+
+<header>
+  
+    <a href="http://localhost:1313" class="title">Giacomo Nazzaro</a>
+  
+  
+</header>
+
+<article>
+  <header>
+    <h1>CSP Solver</h1>
+    <time datetime="2021-04-03T20:01:41&#43;02:00">April 03, 2021</time>
+  </header>
+  <p>As an excercis in minimalism, I tried to implement a simple library for solving <strong>Constrained Satisfaction Problems</strong> (CSP) in C++ without including any library at all.<br>
+A CSP is any problem in which we have some variables with finite domains and we want to find an assignment to those variables such that it satisfies some given constraints.
+Usually, CSP solvers find a solution by performing a search in the space of partial assignments, until they find a complete one.</p>
+<p><img src="/images/graph-coloring-wide.png" alt=""></p>
+<p><em>Graph coloring is an instance of a CSP. Nodes colors are the variables, possible colors are their domains, the constraints are that adjacent nodes can&rsquo;t be of the same color.</em></p>
+<!-- raw HTML omitted -->
+<h2 id="my-simple-solver">My simple solver</h2>
+<p>The implementation of my simple solver can be found <a href="https://github.com/giacomonazzaro/csp_solver">here on GitHub</a>.<br>
+I ended up including only <code>&lt;stdio.h&gt;</code> for printing, but I still consider this as a success in the <em>&ldquo;no dependencies&rdquo;</em> game. As far as features, my solver performs a standard backtrack tree search, with the following heuristics:</p>
+<ul>
+<li>Minimum remaining values</li>
+<li>Max degree</li>
+<li>Generalized arc consistency</li>
+<li>Forward propagation</li>
+</ul>
+<p>These features are what makes the project interesting. Without heuristics the solver would be unusable as it would be orders of magnitude slower.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="n-queens">N-Queens</h2>
+<p>N-Queens is a classic NP toy-problem in artificial intelligence. The goal is to find an arrangement of <code>N</code> queens on a <code>N x N</code> chessboard so that no two queens threaten each other. With <code>N = 8</code>, this is fun puzzle to solve for a human. For <code>N = 20</code>, it is already beyond the human brain reach.<br>
+The simple solver is instead very happy to play with large boards and finds a solution with <code>N = 20</code> in
+less than 0.01 seconds. Here&rsquo;s the solution.</p>
+<p><img src="/images/nqueens.png" alt="20-Queens example"></p>
+<p><em>A solution for the 20-Queens problem, found by my solver</em></p>
+<p>With <code>N = 100</code> timings are still reasonable, around 20 seconds. No image this time, it&rsquo;s too ugly.</p>
+<h2 id="sudoku">Sudoku</h2>
+<p>The game of Sudoku is actually a constraint satisfaction problem waiting to be solved.<br>
+In sudoku we have 81 variables (minus initial numbers), each of which has the same domain in the 1 to 9 range. The constraints are the rules of the game: no duplicates in each row, in each column, and in each 3 by 3 square.<br>
+This is the result of my solver run on the hardest sudoku I colud find online. The solution is found instantly and it is correct of course. It is a simple test, but it was quite useful while debugging.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Before</th>
+<th style="text-align:center">After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/images/s0.png" alt=""></td>
+<td style="text-align:center"><img src="/images/s1.png" alt="20-Queens example"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="memory-allocation">Memory allocation</h2>
+<p>Since I chose to cut down on dependecies, I could not use <code>std::vector</code>.
+This meant that dynamic memory allocation had to be done excplicitely. I took the chance to implement a custom allocator that was well-suited for this very application. Since the solver finds a solution via recursive search in the space of partial assignments, we need to allocate and deallocate a lot of temporary values. This is the classic situation in which the RAII (resource-acquistiono-is- intialization) pradigm performs poorly. So, I implemented a custom stack allocator: a big memory pool is allocated with <code>malloc</code> at the beginning of the program, then, as memory is requested, it is allocated incrementally on the global stack by just returing the pointer of the stack&rsquo;s head and bumping it foward. Freeing memory is equally simple, you just move back the head of the stack.</p>
+<p>The interface is pretty simple. If you want to imitate the behavior of <code>std::vector</code>, the call <code>stack_frame()</code> begins a stack frame, so all the data allocated in this scope or in any sub-scope will be autmatically freed at the end of the scope.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">do_something</span>() {
+  stack_frame();
+  <span style="color:#75715e">// The stack_frame() call tells the stack allocator that everything that is allocated after
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// this must be freed at the end of the scope. This is useful for allocating temporary values.
+</span><span style="color:#75715e"></span>  Array<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">float</span><span style="color:#f92672">&gt;</span> values <span style="color:#f92672">=</span> allocate(<span style="color:#ae81ff">1024</span>, <span style="color:#ae81ff">0.0f</span>);
+  
+  <span style="color:#75715e">// do something with values while it is alive...
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>But how do you return allocated resources from functions if they are freed at the end of scopes?<br>
+Well, just don&rsquo;t call <code>stack_frame()</code>! Any data you allocate before the call of <code>stack_frame()</code>, is &ldquo;owned&rdquo; by the scope of the caller and will survive the current scope.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C++" data-lang="C++">Array<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> make_range(<span style="color:#66d9ef">int</span> n) {
+    <span style="color:#75715e">// This will be returned.
+</span><span style="color:#75715e"></span>    Array<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> result <span style="color:#f92672">=</span> allocate<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(n);
+
+    <span style="color:#75715e">// This is temporary.
+</span><span style="color:#75715e"></span>    stack_frame();
+    Array<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> ones <span style="color:#f92672">=</span> allocate<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span>(n, <span style="color:#ae81ff">1</span>);
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>) result[i] <span style="color:#f92672">=</span> result[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> ones[i];
+
+    <span style="color:#66d9ef">return</span> result;
+}
+</code></pre></div><p>When, on a first implementation, I swapped <code>std::vector</code> with this custom allocator I got a 2x speedup on large problems. This is not surprising: with many recursive calls, the program was spending more time in <code>malloc</code> and <code>free</code> than in doing actual work.</p>
+<h2 id="procedurally-generated-content">Procedurally generated content</h2>
+<p>A nice application of CSP solvers is in procedurally generated content for videogames.<br>
+An increasingly popular method in this field  is the so called <em>Wave Function Collapse</em> algorithm. While it is marketed as insipired by quantum physics, the WFC algorithm is actually the solution of a CSP. The variables are the tile types and their rotations, the constraints are rules for adjacent tiles, which are deduced from the example image. The the CSP is solved for the required grid of tiles.<br>
+WFC-like approaches are not limited to grid domains, any adjacency structure will work.</p>
+<p><img src="/images/wfc.gif" alt="20-Queens example"><br>
+<em>The WFC algorithm is actually a CSP.</em></p>
+
+</article>
+
+
+
+</html>
