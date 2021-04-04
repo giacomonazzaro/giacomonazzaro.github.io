@@ -3,31 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://giacomonazzaro.github.io/</loc>
     <lastmod>2021-04-04T15:52:12+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://giacomonazzaro.github.io/posts/</loc>
     <lastmod>2021-04-04T15:52:12+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/posts/clouds/</loc>
+    <loc>https://giacomonazzaro.github.io/posts/clouds/</loc>
     <lastmod>2021-04-04T15:52:12+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/posts/csp-solver/</loc>
+    <loc>https://giacomonazzaro.github.io/posts/csp-solver/</loc>
     <lastmod>2021-04-03T20:01:41+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://giacomonazzaro.github.io/categories/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://giacomonazzaro.github.io/tags/</loc>
   </url>
   
 </urlset>
