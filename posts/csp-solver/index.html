@@ -1,26 +1,46 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<title>CSP Solver | Giacomo Nazzaro</title>
-<meta charset="utf-8">
-<meta name="generator" content="Hugo 0.80.0" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://giacomonazzaro.github.io/css/index.css">
-<link rel="canonical" href="https://giacomonazzaro.github.io/posts/csp-solver/">
-<link rel="alternate" type="application/rss+xml" href="" title="Giacomo Nazzaro">
+<html lang="en-us" dir="ltr">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>CSP solver &middot; Giacomo Nazzaro</title>
+  <meta name="description" content="Description of the post (displayed in the post&#39;s card)" />
+  <link href="https://giacomonazzaro.github.io/css/katex.css" rel="stylesheet">
+  
+  
+  
+  
+  <link href="https://giacomonazzaro.github.io/css/concated.min.css" rel="stylesheet">
+  
+  
+</head>
 
-<header>
-  
-    <a href="https://giacomonazzaro.github.io/" class="title">Giacomo Nazzaro</a>
-  
-  
-</header>
+  <body class="single-body">
+    <nav class="nav-bar side-padding">
+  <h1 class="nav-header"><a href="https://giacomonazzaro.github.io/" class="nav-text">Giacomo Nazzaro</a></h1>
+  <div class="hamburger-menu">
+    <button onclick="hamburgerMenuPressed.call(this)" aria-haspopup="true" aria-expanded="false" aria-controls="menu" aria-label="Menu">
+      <span></span>
+      <span></span>
+    </button>
+    <ul id="menu" class="hamburger-menu-overlay">
+      <li><a href="https://giacomonazzaro.github.io/" class="hamburger-menu-overlay-link">Home</a></li>
+      
+      
+    </ul>
+  </div>
+</nav>
 
-<article>
-  <header>
-    <h1>CSP Solver</h1>
-    <time datetime="2021-04-03T20:01:41&#43;02:00">April 03, 2021</time>
-  </header>
-  <p>As an excercis in minimalism, I tried to implement a simple library for solving <strong>Constrained Satisfaction Problems</strong> (CSP) in C++ without including any library at all.<br>
+    <main class="content side-text-padding">
+      <article class="post dropcase">
+        <header class="post-header">
+          <h1 class="post-title">CSP solver</h1>
+          
+        </header>
+        
+        
+        <p>As an excercis in minimalism, I tried to implement a simple library for solving <strong>Constrained Satisfaction Problems</strong> (CSP) in C++ without including any library at all.<br>
 A CSP is any problem in which we have some variables with finite domains and we want to find an assignment to those variables such that it satisfies some given constraints.
 Usually, CSP solvers find a solution by performing a search in the space of partial assignments, until they find a complete one.</p>
 <p><img src="/images/graph-coloring-wide.png" alt=""></p>
@@ -96,8 +116,53 @@ WFC-like approaches are not limited to grid domains, any adjacency structure wil
 <p><img src="/images/wfc.gif" alt="20-Queens example"><br>
 <em>The WFC algorithm is actually a CSP.</em></p>
 
-</article>
+      </article>
+      
+    </main>
+    <nav class="end-nav side-padding">
+      
+      <a ontouchstart="cardPressed.call(this)" ontouchend="cardReleased.call(this)" ontouchmove="cardReleased.call(this)" 
+  href="https://giacomonazzaro.github.io/posts/csp/" class="card blog-card bc-next" rel="bookmark" >
+  
+  <div class="card-img-container">
+    <p class="card-img-overlay">Next Article</p>
+    <picture>
+      
+      
+      
+      <source srcset="https://giacomonazzaro.github.io/posts/csp/graph-coloring-wide_hu791ae634421645a4b865e09c01afed78_37908_400x0_resize_lanczos_2.png 1x, https://giacomonazzaro.github.io/posts/csp/graph-coloring-wide_hu791ae634421645a4b865e09c01afed78_37908_800x0_resize_lanczos_2.png 2x, https://giacomonazzaro.github.io/posts/csp/graph-coloring-wide_hu791ae634421645a4b865e09c01afed78_37908_1200x0_resize_lanczos_2.png 3x">
+      <img src="https://giacomonazzaro.github.io/posts/csp/graph-coloring-wide_hu791ae634421645a4b865e09c01afed78_37908_400x0_resize_lanczos_2.png" class="card-img" >
+    </picture>
+  </div>
+  
+  <article class="card-body">
+    <h2 class="card-title">CSP solver</h2>
+    <p class="card-text">An exercise in minimalism.</p>
+    <div class="card-subtext muted-text">
+      <p>Posted <time datetime="0001-01-01 11:00">Jan 1, 0001</time></p>
+      
+    </div>
+  </article>
+</a>
+      
+    </nav>
+    <footer class="side-padding" style="background-image: url('https://giacomonazzaro.github.io/img/home-blob-flip.svg');">
+    <a href="https://giacomonazzaro.github.io/" class="footer-link">
+    
+        <img class="footer-icon" src="https://giacomonazzaro.github.io/icons/home-page.png">
+    
+    </a>
+    
+    
+</footer>
+    
+  <script defer src="https://giacomonazzaro.github.io/js/katex.js"></script>
 
 
+  <script defer src="https://giacomonazzaro.github.io/js/auto-render.js" onload="renderMathInElement(document.body);"></script>
 
+
+<script src="https://giacomonazzaro.github.io/js/core.min.js"></script>
+
+  </body>
 </html>

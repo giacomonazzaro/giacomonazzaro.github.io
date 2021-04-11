@@ -1,12 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Giacomo Nazzaro</title>
+    <title>Posts - Giacomo Nazzaro</title>
     <link>https://giacomonazzaro.github.io/posts/</link>
     <description>Recent content in Posts on Giacomo Nazzaro</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Apr 2021 15:52:12 +0200</lastBuildDate><atom:link href="https://giacomonazzaro.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Apr 2021 15:52:12 +0200</lastBuildDate>
+    
+        <atom:link href="https://giacomonazzaro.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>Real-time volumetric clouds in production</title>
       <link>https://giacomonazzaro.github.io/posts/clouds/</link>
@@ -14,19 +16,22 @@
       
       <guid>https://giacomonazzaro.github.io/posts/clouds/</guid>
       <description>During 2020, I worked on a research project for Milestone, the biggest videogame company in Italy.
-They wanted me to develop a system for real-time rendering and authoring of volumetric clouds, integrated in Unreal Engine 4. Without furher ado, this is the final video showing-off the visual features (it has a slow pace since it was supposed te be the background of my presentation).
+They wanted me to develop a system for real-time rendering and authoring of volumetric clouds, integrated in Unreal Engine 4. Without furher ado, this is the final video showing-off the visual features (it has a slow pace since it was supposed te be played as a during my oral presentation).
   It has been a long project and I&amp;rsquo;ll sum up here the main challanges.</description>
-    </item>
-    
-    <item>
-      <title>CSP Solver</title>
+    </item><item>
+      <title>CSP solver</title>
       <link>https://giacomonazzaro.github.io/posts/csp-solver/</link>
-      <pubDate>Sat, 03 Apr 2021 20:01:41 +0200</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://giacomonazzaro.github.io/posts/csp-solver/</guid>
-      <description>As an excercis in minimalism, I tried to implement a simple library for solving Constrained Satisfaction Problems (CSP) in C++ without including any library at all.
-A CSP is any problem in which we have some variables with finite domains and we want to find an assignment to those variables such that it satisfies some given constraints. Usually, CSP solvers find a solution by performing a search in the space of partial assignments, until they find a complete one.</description>
+      <description>Description of the post (displayed in the post&#39;s card)</description>
+    </item><item>
+      <title>CSP solver</title>
+      <link>https://giacomonazzaro.github.io/posts/csp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://giacomonazzaro.github.io/posts/csp/</guid>
+      <description>An exercise in minimalism.</description>
     </item>
-    
   </channel>
 </rss>
